@@ -1,8 +1,10 @@
 package com.zimug.bootlaunch.controller;
 
 import com.zimug.bootlaunch.domain.Article;
+import com.zimug.bootlaunch.service.ArticleRestService;
 import com.zimug.bootlaunch.util.AjaxResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +25,12 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RequestMapping("/rest")
 public class ArticleRestController {
 
+    @Autowired
+    ArticleRestService articleRestService;
+
     @RequestMapping(value = "/article", method = POST, produces = "application/json")
     public AjaxResponse saveArticle(@RequestBody Article article) {
-
+        articleRestService.saveArticle(article);
         log.info("saveArticle：{}", article);
         return AjaxResponse.success(article);
     }
@@ -48,7 +53,9 @@ public class ArticleRestController {
     @RequestMapping(value = "/article/{id}", method = GET, produces = "application/json")
     public AjaxResponse getArticle(@PathVariable Long id) {
 
-        Article article1 = Article.builder().id(1L).author("zimug").content("spring boot 2.深入浅出").createTime(new Date()).title("t1").build();
+//        Article article1 = Article.builder().id(1L).author("zimug").content("spring boot 2.深入浅出").createTime(new Date()).title("t1").build();
+        Article article1 = null;
+
         return AjaxResponse.success(article1);
     }
 

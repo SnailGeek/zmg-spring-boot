@@ -1,10 +1,12 @@
 package com.zimug.bootlaunch.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -16,12 +18,14 @@ import java.util.List;
  **/
 @Data
 @Builder
-public class Article {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Article implements Serializable {
 
     //@JsonIgnore //排除属性不作序列化与反序列化
     private Long id;
 
-    @JsonProperty("auther") //为属性换一个名
+    //@JsonProperty("auther") //为属性换一个名
     private String author;
     private String title;
     private String content;
@@ -30,4 +34,6 @@ public class Article {
     private Date createTime;
 
     private List<Reader> reader;
+
+
 }
