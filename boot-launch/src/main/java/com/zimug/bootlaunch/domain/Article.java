@@ -1,8 +1,9 @@
 package com.zimug.bootlaunch.domain;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.ToString;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,12 +13,12 @@ import java.util.List;
  * @date: 2019-10-16 08:39
  **/
 @Data
-@ToString
+@Builder
 public class Article {
-    private int id;
+    private Long id;
     private String author;
     private String title;
     private String content;
-    private String createTime;
+    private Date createTime;
     private List<Reader> reader;
 }
