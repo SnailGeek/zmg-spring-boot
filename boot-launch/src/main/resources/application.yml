@@ -11,3 +11,25 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+
+
+# yml 测试例子
+family:
+  family-name: 'family \n name'
+  father:
+    name: zimug
+    age: ${random.int(10)}
+  mother:
+    alias:
+      - holiy
+      - alice
+  child:
+    name: kobe
+    age: ${family.father.age:5}
+    friends:
+      - hobby: football
+        sex: male
+      - hobby: basketball
+        sex: female
+
+

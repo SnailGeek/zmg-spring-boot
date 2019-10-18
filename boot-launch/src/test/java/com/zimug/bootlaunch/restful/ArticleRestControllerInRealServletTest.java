@@ -1,13 +1,16 @@
-package com.zimug.bootlaunch;
+package com.zimug.bootlaunch.restful;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zimug.bootlaunch.controller.ArticleRestController;
 import com.zimug.bootlaunch.domain.Article;
 import com.zimug.bootlaunch.service.ArticleRestService;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpMethod;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -15,20 +18,23 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 /**
- * @program: WebMvcTest
+ * @program: ArticleRestControllerTest
  * @description:
  * @author: wangf-q
- * @date: 2019-10-17 07:40
+ * @date: 2019-10-16 09:24
  **/
-@RunWith(SpringRunner.class)
 @Slf4j
-@org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest(ArticleRestController.class)
-public class WebMvcTest {
+@SpringBootTest
+@RunWith(SpringRunner.class)
+@AutoConfigureMockMvc
+public class ArticleRestControllerInRealServletTest {
+
     @Autowired
     private MockMvc mockMvc;
 

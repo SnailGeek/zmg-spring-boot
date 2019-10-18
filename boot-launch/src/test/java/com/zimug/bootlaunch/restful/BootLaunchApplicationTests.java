@@ -1,4 +1,4 @@
-package com.zimug.bootlaunch;
+package com.zimug.bootlaunch.restful;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
