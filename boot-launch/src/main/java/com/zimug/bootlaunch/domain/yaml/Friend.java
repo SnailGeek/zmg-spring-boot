@@ -2,6 +2,8 @@ package com.zimug.bootlaunch.domain.yaml;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotEmpty;
+
 /**
  * @program: Friend
  * @description:
@@ -12,5 +14,6 @@ import lombok.Data;
 public class Friend {
     private String hobby;
 
+    @NotEmpty
     private String sex;
 }
