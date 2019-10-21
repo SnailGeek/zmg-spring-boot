@@ -1,8 +1,10 @@
 package com.zimug.bootlaunch.domain.yaml;
 
+import com.zimug.bootlaunch.config.MixPropertySourceFactory;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
@@ -25,6 +27,8 @@ import javax.validation.constraints.NotEmpty;
  **/
 @Validated
 @ConfigurationProperties(prefix = "family")
+@PropertySource(value = {"classpath:family.yml"}, factory = MixPropertySourceFactory.class)
+//@PropertySource(value = {"classpath:family.properties"} 如果加载外部的配置文件是properties，不需要重写配置类，只加这句即可
 public class Family {
 
 //    @Value("${family.family-name}")
