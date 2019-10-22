@@ -1,13 +1,11 @@
-server:
-  port: 8888
-
 spring:
-  devtools:
-    restart:
-      enabled: true #热加载生效
-      additional-paths: src/main/java # 额外新增的热加载目录
-      exclude: # 热加载排除目录
+  profiles:
+    active: prod
 
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
+# 实际最常用的是用命令行启动jar包  java -jar xxxxx.jar --spring.profiles.active=prod
+
+# 也可以在idea命令行参数中加上命令
+  # VM options 设置参数-Dspring.profiles.active=prod
+  # Program arguments设置 --spring.profiles.active=prod
+
+# 环境优先级是 外部 > 内部   特殊 > 范式
