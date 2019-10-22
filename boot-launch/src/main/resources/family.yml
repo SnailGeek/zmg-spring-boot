@@ -1,7 +1,7 @@
 
 # yml 测试例子
 family:
-  family-name: 'family \n name'
+  family-name: ENC(s2Eo44I7A67utfVtB6K7lYpAK3A3qoVd)
   father:
     name: zimug
     age: ${random.int(10)}

@@ -48,6 +48,13 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!--引入加密依赖的jar包，然后去项目里面找 jasypt-1.9.2.jar 再用bat脚本进行加密-->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>1.18</version>
+        </dependency>
     </dependencies>
 
     <build>
