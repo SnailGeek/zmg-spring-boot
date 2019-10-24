@@ -2,6 +2,8 @@ package com.zimug.bootlaunch.service;
 
 import com.zimug.bootlaunch.domain.Article;
 
+import java.util.List;
+
 /**
  * @program: ArticleRestService
  * @description:
@@ -10,5 +12,13 @@ import com.zimug.bootlaunch.domain.Article;
  **/
 public interface ArticleRestService {
 
-    String saveArticle(Article article);
+    public Article saveArticle(Article article);
+
+    public void deleteArticle(Long id);
+
+    public void updateArticle(Article article);
+
+    public Article getArticle(Long id);
+
+    public List<Article> getAll();
 }
