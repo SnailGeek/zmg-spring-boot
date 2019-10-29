@@ -1,5 +1,6 @@
 package com.zimug.bootlaunch.service.impl;
 
+
 import com.zimug.bootlaunch.dao.ArticleJDBCDAO;
 import com.zimug.bootlaunch.domain.Article;
 import com.zimug.bootlaunch.service.ArticleRestService;
@@ -23,6 +24,8 @@ public class ArticleRestServiceImpl implements ArticleRestService {
     @Resource
     private ArticleJDBCDAO articleJDBCDAO;
 
+
+
     @Resource
     private JdbcTemplate primaryJdbcTemplate;
 
@@ -33,7 +36,7 @@ public class ArticleRestServiceImpl implements ArticleRestService {
     public Article saveArticle(Article article) {
         articleJDBCDAO.save(article, secondaryJdbcTemplate);
         articleJDBCDAO.save(article, primaryJdbcTemplate);
-        //int a = 2/0；
+//        int a = 2/0;
         return article;
     }
 

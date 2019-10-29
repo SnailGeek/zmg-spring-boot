@@ -16,6 +16,14 @@ import java.util.List;
  * @author: wangf-q
  * @date: 2019-10-16 08:39
  **/
+/*
+ *{
+	"author": "liucixin",
+	"title":"three body",
+	"content":"cld",
+	"createTime":"2019-10-29 00:00:00"
+    }
+ **/
 @Data
 @Builder
 @NoArgsConstructor
