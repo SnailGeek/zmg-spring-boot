@@ -2,8 +2,8 @@ package com.zimug.bootlaunch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zimug.bootlaunch.controller.ArticleRestController;
-import com.zimug.bootlaunch.domain.Article;
 import com.zimug.bootlaunch.service.ArticleRestService;
+import com.zimug.bootlaunch.vo.ArticleVO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,9 +47,9 @@ public class WebMvcTest {
                 "}";
 
         ObjectMapper objectMapper = new ObjectMapper();
-        Article articleObj = objectMapper.readValue(article, Article.class);
+        ArticleVO articleObj = objectMapper.readValue(article, ArticleVO.class);
 
-        when(articleRestService.saveArticle(articleObj)).thenReturn("ok");
+        when(articleRestService.saveArticle(articleObj)).thenReturn(articleObj);
 
         MvcResult result = mockMvc.perform(
                 MockMvcRequestBuilders.request(HttpMethod.POST, "/rest/article")

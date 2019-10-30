@@ -1,11 +1,9 @@
 package com.zimug.bootlaunch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zimug.bootlaunch.controller.ArticleRestController;
-import com.zimug.bootlaunch.domain.Article;
 import com.zimug.bootlaunch.service.ArticleRestService;
+import com.zimug.bootlaunch.vo.ArticleVO;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +16,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -53,9 +50,9 @@ public class ArticleRestControllerInRealServletTest {
                 "}";
 
         ObjectMapper objectMapper = new ObjectMapper();
-        Article articleObj = objectMapper.readValue(article, Article.class);
+        ArticleVO articleObj = objectMapper.readValue(article, ArticleVO.class);
 
-        when(articleRestService.saveArticle(articleObj)).thenReturn("ok");
+        when(articleRestService.saveArticle(articleObj)).thenReturn(articleObj);
 
         MvcResult result = mockMvc.perform(
                 MockMvcRequestBuilders.request(HttpMethod.POST, "/rest/article")
