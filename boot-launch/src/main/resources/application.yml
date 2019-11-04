@@ -14,12 +14,12 @@ spring:
 
   datasource:
     primary:
-      jdbc-url: jdbc:mysql://localhost:3306/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      url: jdbc:mysql://localhost:3306/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
       username: root
       password: 123qwe!@#
       driver-class-name: com.mysql.jdbc.Driver
     secondary:
-      jdbc-url: jdbc:mysql://localhost:3306/testdb2?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      url: jdbc:mysql://localhost:3306/testdb2?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
       username: root
       password: 123qwe!@#
       driver-class-name: com.mysql.jdbc.Driver
@@ -28,3 +28,12 @@ spring:
       ddl-auto: update
     database: mysql
     show-sql: true
+
+  jta:
+    atomikos:
+      datasource:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
+      connectionfactory:
+        max-pool-size: 20
+        borrow-connection-timeout: 60

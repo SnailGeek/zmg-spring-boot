@@ -2,6 +2,8 @@ package com.zimug.bootlaunch.service.impl;
 
 import com.zimug.bootlaunch.jpa.testdb.Article;
 import com.zimug.bootlaunch.jpa.testdb.ArticleRepository;
+import com.zimug.bootlaunch.jpa.testdb2.Message;
+import com.zimug.bootlaunch.jpa.testdb2.MessageRepository;
 import com.zimug.bootlaunch.service.ArticleRestService;
 import com.zimug.bootlaunch.util.DozerUtils;
 import com.zimug.bootlaunch.vo.ArticleVO;
@@ -28,12 +30,17 @@ public class ArticleJpaRestServiceImpl implements ArticleRestService {
     private ArticleRepository articleRepository;
 
     @Resource
+    private MessageRepository messageRepository;
+
+    @Resource
     private DozerBeanMapper dozerMapper;
 
     public ArticleVO saveArticle(ArticleVO article) {
 
         Article articlePO = dozerMapper.map(article,Article.class);
         articleRepository.save(articlePO);    //保存一个对象到数据库，insert
+        messageRepository.save(new Message(null, "zimug", "gogogo"));
+
 
         return  article;
     }
