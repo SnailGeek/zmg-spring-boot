@@ -1,7 +1,7 @@
 package com.zimug.bootlaunch.service.impl;
 
-import com.zimug.bootlaunch.dao.Article;
-import com.zimug.bootlaunch.dao.ArticleRepository;
+import com.zimug.bootlaunch.jpa.testdb.Article;
+import com.zimug.bootlaunch.jpa.testdb.ArticleRepository;
 import com.zimug.bootlaunch.service.ArticleRestService;
 import com.zimug.bootlaunch.util.DozerUtils;
 import com.zimug.bootlaunch.vo.ArticleVO;
