@@ -2,8 +2,11 @@ package com.zimug.bootlaunch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zimug.bootlaunch.controller.ArticleRestController;
+import com.zimug.bootlaunch.generator.Article;
 import com.zimug.bootlaunch.service.ArticleRestService;
+import com.zimug.bootlaunch.vo.ArticleVO;
 import lombok.extern.slf4j.Slf4j;
+import org.dozer.Mapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import javax.annotation.Resource;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -34,8 +39,11 @@ public class WebMvcTest {
     @MockBean
     private ArticleRestService articleRestService;
 
+    @Resource
+    private Mapper dozerMapper;
+
     @Test
-    public void saveArticle() throws Exception{
+    public void saveArticle() throws Exception {
         String article = "{\n" +
                 "    \"id\": 1,\n" +
                 "    \"author\": \"zimug\",\n" +
@@ -47,8 +55,8 @@ public class WebMvcTest {
 
         ObjectMapper objectMapper = new ObjectMapper();
         Article articleObj = objectMapper.readValue(article, Article.class);
-
-        when(articleRestService.saveArticle(articleObj)).thenReturn("ok");
+        ArticleVO articlePO = dozerMapper.map(articleObj, ArticleVO.class);
+        when(articleRestService.saveArticle(articlePO)).thenReturn(articlePO);
 
         MvcResult result = mockMvc.perform(
                 MockMvcRequestBuilders.request(HttpMethod.POST, "/rest/article")

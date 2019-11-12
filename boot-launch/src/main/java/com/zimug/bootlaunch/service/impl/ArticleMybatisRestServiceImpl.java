@@ -1,5 +1,6 @@
 package com.zimug.bootlaunch.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zimug.bootlaunch.generator.Article;
 import com.zimug.bootlaunch.generator.ArticleDao;
 import com.zimug.bootlaunch.service.ArticleRestService;
@@ -20,7 +21,7 @@ import java.util.List;
  **/
 @Service
 @Slf4j
-public class ArticleMybatisRestServiceImpl implements ArticleRestService {
+public class ArticleMybatisRestServiceImpl extends ServiceImpl<ArticleDao, Article> implements ArticleRestService {
     @Resource
     protected Mapper dozerMapper;
 
@@ -45,19 +46,20 @@ public class ArticleMybatisRestServiceImpl implements ArticleRestService {
     //更新
     @Override
     public void updateArticle(ArticleVO article) {
-        Article articlePO = dozerMapper.map(article,Article.class);
+        Article articlePO = dozerMapper.map(article, Article.class);
         articleDao.updateByPrimaryKeySelective(articlePO);
     }
 
     //查询
     @Override
     public ArticleVO getArticle(Long id) {
-        return dozerMapper.map(articleDao.selectByPrimaryKey(id),ArticleVO.class);
+        return dozerMapper.map(articleDao.selectByPrimaryKey(id), ArticleVO.class);
     }
+
     //查询所有
     @Override
     public List<ArticleVO> getAll() {
         List<Article> articles = articleDao.selectByExample(null);
-        return DozerUtils.mapList(articles,ArticleVO.class);
+        return DozerUtils.mapList(articles, ArticleVO.class);
     }
 }
