@@ -8,13 +8,13 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @program: ArticleVo
+ * @program: ArticleVO
  * @description:
  * @author: wangf-q
  * @date: 2019-10-29 16:03
  **/
 @Data
-public class ArticleVo {
+public class ArticleVO {
     //@JsonIgnore //排除属性不作序列化与反序列化
     private Long id;
 
