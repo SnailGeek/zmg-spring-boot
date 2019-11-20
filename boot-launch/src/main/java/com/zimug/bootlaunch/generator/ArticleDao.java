@@ -1,10 +1,9 @@
 package com.zimug.bootlaunch.generator;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zimug.bootlaunch.generator.Article;
-import com.zimug.bootlaunch.generator.ArticleExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ArticleDao extends BaseMapper<Article> {
     long countByExample(ArticleExample example);
