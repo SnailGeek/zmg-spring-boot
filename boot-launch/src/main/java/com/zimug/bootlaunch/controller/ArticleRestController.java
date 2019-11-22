@@ -1,6 +1,5 @@
 package com.zimug.bootlaunch.controller;
 
-import com.zimug.bootlaunch.generator.Article;
 import com.zimug.bootlaunch.service.ArticleRestService;
 import com.zimug.bootlaunch.util.AjaxResponse;
 import com.zimug.bootlaunch.vo.ArticleVO;

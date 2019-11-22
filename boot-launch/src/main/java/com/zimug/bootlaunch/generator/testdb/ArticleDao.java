@@ -1,4 +1,4 @@
-package com.zimug.bootlaunch.generator;
+package com.zimug.bootlaunch.generator.testdb;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;

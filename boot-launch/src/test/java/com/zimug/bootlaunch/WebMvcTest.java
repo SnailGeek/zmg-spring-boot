@@ -2,7 +2,7 @@ package com.zimug.bootlaunch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zimug.bootlaunch.controller.ArticleRestController;
-import com.zimug.bootlaunch.generator.Article;
+import com.zimug.bootlaunch.generator.testdb.Article;
 import com.zimug.bootlaunch.service.ArticleRestService;
 import com.zimug.bootlaunch.vo.ArticleVO;
 import lombok.extern.slf4j.Slf4j;
@@ -49,7 +49,7 @@ public class WebMvcTest {
                 "    \"author\": \"zimug\",\n" +
                 "    \"title\": \"手摸手教你开发spring boot\",\n" +
                 "    \"content\": \"c\",\n" +
-//                "    \"createTime\": \"2017-07-16 05:23:34\",\n" +
+                "    \"createTime\": \"2017-07-16 05:23:34\",\n" +
                 "    \"reader\":[{\"name\":\"zimug\",\"age\":18},{\"name\":\"kobe\",\"age\":37}]\n" +
                 "}";
 

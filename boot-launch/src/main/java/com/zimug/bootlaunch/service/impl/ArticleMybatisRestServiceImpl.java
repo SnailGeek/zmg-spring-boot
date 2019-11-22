@@ -1,8 +1,12 @@
 package com.zimug.bootlaunch.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.zimug.bootlaunch.generator.Article;
-import com.zimug.bootlaunch.generator.ArticleDao;
+import com.zimug.bootlaunch.generator.testdb.Article;
+import com.zimug.bootlaunch.generator.testdb.ArticleDao;
+import com.zimug.bootlaunch.generator.testdb2.Message;
+import com.zimug.bootlaunch.generator.testdb2.MessageDao;
+import com.zimug.bootlaunch.generator.testdb2.Order;
+import com.zimug.bootlaunch.generator.testdb2.OrderDao;
 import com.zimug.bootlaunch.service.ArticleRestService;
 import com.zimug.bootlaunch.util.DozerUtils;
 import com.zimug.bootlaunch.vo.ArticleVO;
@@ -29,11 +33,26 @@ public class ArticleMybatisRestServiceImpl extends ServiceImpl<ArticleDao, Artic
     private ArticleDao articleDao;
 
 
+    @Resource
+    private MessageDao messageDao;
+
+    @Resource
+    private OrderDao orderDao;
+
     //新增
     @Override
     public ArticleVO saveArticle(ArticleVO article) {
         Article articlePO = dozerMapper.map(article, Article.class);
         articleDao.insert(articlePO);
+
+        Message message = new Message();
+        message.setName("kobi");
+        message.setContent("gogo");
+        messageDao.insert(message);
+
+        Order order = new Order();
+        order.setCode("123");
+        orderDao.insert(order);
         return null;
     }
 

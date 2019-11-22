@@ -1,4 +1,4 @@
-package com.zimug.bootlaunch.generator;
+package com.zimug.bootlaunch.generator.testdb;
 
 import java.io.Serializable;
 import java.util.Date;

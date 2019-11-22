@@ -1,7 +1,7 @@
 package com.zimug.bootlaunch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zimug.bootlaunch.generator.Article;
+import com.zimug.bootlaunch.generator.testdb.Article;
 import com.zimug.bootlaunch.service.ArticleRestService;
 import com.zimug.bootlaunch.vo.ArticleVO;
 import lombok.extern.slf4j.Slf4j;
